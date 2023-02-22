@@ -1,4 +1,4 @@
-function Post(target_url,tokenjson,datajson,responseFunction){
+export function Post(target_url,tokenjson,datajson,responseFunction){
     var myHeaders = new Headers();
     myHeaders.append(tokenjson.key, tokenjson.value);
     myHeaders.append("Content-Type", "application/json");

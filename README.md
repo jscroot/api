@@ -18,6 +18,6 @@ let datajson = {
     "password": password
     }
 
-Post(target_url,tokenjson,datajson,GetResponse);
+postWithToken(target_url,tokenjson,datajson,GetResponse);
 
 ```

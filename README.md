@@ -6,11 +6,6 @@ function GetResponse(result){
     document.getElementById("formsignup").innerHTML = result;
 }
 
-let target_url = "https://foo.bar"
-let tokenjson = {
-    "key" : "Token",
-    "value" : "asiuha87fdy87sdf87sfbdsfgds87gf87we87vf87dv"
-}
 let datajson = {
     "namadepan": namadepan,
     "namabelakang": namabelakang,
@@ -18,6 +13,6 @@ let datajson = {
     "password": password
     }
 
-postWithToken(target_url,tokenjson,datajson,GetResponse);
+postWithToken("https://foo.bar","Token","dsf9ygf87h98u479y98dj0fs89nfd7",datajson,GetResponse);
 
 ```

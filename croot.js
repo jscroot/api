@@ -1,6 +1,6 @@
-export function postWithToken(target_url,tokenjson,datajson,responseFunction){
+export function postWithToken(target_url,tokenkey,tokenvalue,datajson,responseFunction){
     var myHeaders = new Headers();
-    myHeaders.append(tokenjson.key, tokenjson.value);
+    myHeaders.append(tokenkey, tokenvalue);
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify(datajson);

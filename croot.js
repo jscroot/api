@@ -14,7 +14,7 @@ export function postWithToken(target_url,tokenkey,tokenvalue,datajson,responseFu
 
     fetch(target_url, requestOptions)
     .then(response => response.text())
-    .then(result => responseFunction(result))
+    .then(result => responseFunction(JSON.parse(result)))
     .catch(error => console.log('error', error));
 }
 
@@ -34,7 +34,7 @@ export function postWithBearer(target_url,token,datajson,responseFunction){
 
     fetch(target_url, requestOptions)
     .then(response => response.text())
-    .then(result => responseFunction(result))
+    .then(result => responseFunction(JSON.parse(result)))
     .catch(error => console.log('error', error));
 }
 
@@ -46,6 +46,6 @@ export function get(target_url,responseFunction){
 
     fetch(target_url, requestOptions)
     .then(response => response.text())
-    .then(result => responseFunction(result))
+    .then(result => responseFunction(JSON.parse(result)))
     .catch(error => console.log('error', error));
 }

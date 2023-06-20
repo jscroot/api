@@ -20,7 +20,7 @@ export function postWithToken(target_url,tokenkey,tokenvalue,datajson,responseFu
 
 export function postWithBearer(target_url,token,datajson,responseFunction){
     var myHeaders = new Headers();
-    myHeaders.append("Accept", "application/vnd.github+json");
+    myHeaders.append("Accept", "application/vnd.github.v3+json");
     myHeaders.append("Authorization", "Bearer "+token);
     myHeaders.append("X-GitHub-Api-Version", "2022-11-28");
 

@@ -49,3 +49,20 @@ export function get(target_url,responseFunction){
     .then(result => responseFunction(JSON.parse(result)))
     .catch(error => console.log('error', error));
 }
+
+export function getWithHeader(target_url,tokenkey,tokenvalue,responseFunction) {
+
+    let myHeaders = new Headers();
+    myHeaders.append(tokenkey, tokenvalue);
+
+    let requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+        headers: myHeaders
+    };
+
+    fetch(target_url, requestOptions)
+    .then(response => response.text())
+    .then(result => responseFunction(JSON.parse(result)))
+    .catch(error => console.log('error', error));
+}

@@ -66,3 +66,42 @@ export function getWithHeader(target_url,tokenkey,tokenvalue,responseFunction) {
     .then(result => responseFunction(JSON.parse(result)))
     .catch(error => console.log('error', error));
 }
+
+export function postFile(target_url,id,formdataname,responseFunction) {
+    const input = document.getElementById(id);
+    const file = input.files[0];
+    const formData = new FormData();
+    formData.append(formdataname, file);
+    var requestOptions = {
+        method: 'POST',
+        body: formData,
+        redirect: 'follow'
+        };
+    
+    fetch(target_url, requestOptions)
+    .then(response => response.text())
+    .then(result => responseFunction(JSON.parse(result)))
+    .catch(error => console.log('error', error));
+}
+
+//make sure formdataname use in the backend to get data file
+export function postFileWithHeader(target_url,tokenkey,tokenvalue,id,formdataname,responseFunction) {
+    let myHeaders = new Headers();
+    myHeaders.append(tokenkey, tokenvalue);
+
+    const input = document.getElementById(id);
+    const file = input.files[0];
+    const formData = new FormData();
+    formData.append(formdataname, file);
+    var requestOptions = {
+        method: 'POST',
+        body: formData,
+        redirect: 'follow',
+        headers: myHeaders
+        };
+    
+    fetch(target_url, requestOptions)
+    .then(response => response.text())
+    .then(result => responseFunction(JSON.parse(result)))
+    .catch(error => console.log('error', error));
+}

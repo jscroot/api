@@ -50,6 +50,34 @@ export function get(target_url,responseFunction){
     .catch(error => console.log('error', error));
 }
 
+export function insertHTML(target_url,id){
+    var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+    };
+
+    fetch(target_url, requestOptions)
+    .then(response => response.text())
+    .then(result => document.getElementById(id).innerHTML = result)
+    .catch(error => console.log('error', error));
+}
+
+export function getDomHTML(target_url,domFunction){
+    var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+    };
+
+    fetch(target_url, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        const parser = new DOMParser();
+        const htmlDom = parser.parseFromString(result, "text/html");
+        domFunction(htmlDom);
+    })
+    .catch(error => console.log('error', error));
+}
+
 export function getWithHeader(target_url,tokenkey,tokenvalue,responseFunction) {
 
     let myHeaders = new Headers();

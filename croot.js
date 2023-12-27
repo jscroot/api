@@ -50,7 +50,7 @@ export function get(target_url,responseFunction){
     .catch(error => console.log('error', error));
 }
 
-export function insertHTML(target_url,id){
+export function insertHTML(target_url,id,runFunction){
     var requestOptions = {
     method: 'GET',
     redirect: 'follow'
@@ -59,6 +59,7 @@ export function insertHTML(target_url,id){
     fetch(target_url, requestOptions)
     .then(response => response.text())
     .then(result => document.getElementById(id).innerHTML = result)
+    .then(() => runFunction())
     .catch(error => console.log('error', error));
 }
 

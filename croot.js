@@ -60,7 +60,7 @@ export function insertHTML(target_url,id,runFunction){
     .then(response => response.text())
     .then(result => document.getElementById(id).innerHTML = result)
     .then(() => runFunction())
-    .catch(error => console.log('error', error));
+    .catch(error => console.log("Not Found ID : "+id+", please make sure the id attribut is exist. If doesn't ", error));
 }
 
 export function getDomHTML(target_url,domFunction){

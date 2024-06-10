@@ -13,7 +13,7 @@ let datajson = {
     "password": password
     }
 
-postWithToken("https://foo.bar","Token","dsf9ygf87h98u479y98dj0fs89nfd7",datajson,GetResponse);
+postJSON("https://foo.bar","Token","dsf9ygf87h98u479y98dj0fs89nfd7",datajson,GetResponse);
 
 ```
 
@@ -25,6 +25,6 @@ https://cdn.jsdelivr.net/gh/jscroot/api/
 Tag version
 ```sh
 git tag                                 	#check current version
-git tag v0.0.7                          	#set tag version
+git tag v0.0.8                          	#set tag version
 git push origin --tags  
 ```

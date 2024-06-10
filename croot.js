@@ -53,7 +53,34 @@ export function postJSON(target_url, tokenkey, tokenvalue, datajson, responseFun
         .catch(error => console.log('error', error));
 }
 
+// function responseFunction(response) {
+//     console.log('HTTP Status:', response.status);
+//     console.log('Response Data:', response.data);
+// }
+export function deleteJSON(target_url, tokenkey, tokenvalue, datajson, responseFunction) {
+    var myHeaders = new Headers();
+    myHeaders.append(tokenkey, tokenvalue);
+    myHeaders.append("Content-Type", "application/json");
 
+    var raw = JSON.stringify(datajson);
+
+    var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    fetch(target_url, requestOptions)
+        .then(response => {
+            const status = response.status;
+            return response.text().then(result => {
+                const parsedResult = JSON.parse(result);
+                responseFunction({ status, data: parsedResult });
+            });
+        })
+        .catch(error => console.log('error', error));
+}
 
 export function postWithBearer(target_url,token,datajson,responseFunction){
     var myHeaders = new Headers();
